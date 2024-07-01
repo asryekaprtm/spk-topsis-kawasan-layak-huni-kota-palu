@@ -1,0 +1,136 @@
+{% include 'header.html' %}
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-10 grid-margin">
+                <div class="row">
+                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                        <h3 class="font-weight-bold">Penilaian</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">form Input</h4>
+                        <form class="forms-sample" action="/editpenilaian" method="POST">
+                            <input type="hidden" name="id" value="{{data.0}}">
+                            <div class="form-group row">
+                                <label class="col-sm-3 offset-md-2 col-form-label" for="merek">
+                                    <h6>Merek Leptop</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="merek" value="{{ data.0 }}" id="merek" class="form-control">
+                                        <option selected>{{ data.1 }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 offset-md-2 col-form-label" for="ram">
+                                    <h6>Ram</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ram" id="ram" class="form-control">
+                                        <option value="" {% if data.2 == '' %} selected {% endif %}></option>
+                                        <option value="5" {% if data.2 == '5' %} selected {% endif %}>Sangat
+                                            Baik</option>
+                                        <option value="4" {% if data.2 == '4' %} selected {% endif %}>Baik</option>
+                                        <option value="3" {% if data.2 == '3' %} selected {% endif %}>Cukup</option>
+                                        <option value="2" {% if data.2 == '2' %} selected {% endif %}>Kurang
+                                            Baik</option>
+                                        <option value="1" {% if data.2 == '1' %} selected {% endif %}>Tidak
+                                            Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ssd" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>SSD</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ssd" id="ssd" class="form-control">
+                                        <option value="" {% if data.2 == '' %} selected {% endif %}></option>
+                                        <option value="5" {% if data.2 == '5' %} selected {% endif %}>Sangat
+                                            Baik</option>
+                                        <option value="4" {% if data.2 == '4' %} selected {% endif %}>Baik</option>
+                                        <option value="3" {% if data.2 == '3' %} selected {% endif %}>Cukup</option>
+                                        <option value="2" {% if data.2 == '2' %} selected {% endif %}>Kurang
+                                            Baik</option>
+                                        <option value="1" {% if data.2 == '1' %} selected {% endif %}>Tidak
+                                            Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="processor" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>Processor</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="processor" id="processor" class="form-control">
+                                        <option value="" {% if data.2 == '' %} selected {% endif %}></option>
+                                        <option value="5" {% if data.2 == '5' %} selected {% endif %}>Sangat
+                                            Baik</option>
+                                        <option value="4" {% if data.2 == '4' %} selected {% endif %}>Baik</option>
+                                        <option value="3" {% if data.2 == '3' %} selected {% endif %}>Cukup</option>
+                                        <option value="2" {% if data.2 == '2' %} selected {% endif %}>Kurang
+                                            Baik</option>
+                                        <option value="1" {% if data.2 == '1' %} selected {% endif %}>Tidak
+                                            Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ukuran_layar" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>Ukuran Layar</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ukuran_layar" id="ukuran_layar" class="form-control">
+                                        <option value="" {% if data.2 == '' %} selected {% endif %}></option>
+                                        <option value="5" {% if data.2 == '5' %} selected {% endif %}>Sangat
+                                            Baik</option>
+                                        <option value="4" {% if data.2 == '4' %} selected {% endif %}>Baik</option>
+                                        <option value="3" {% if data.2 == '3' %} selected {% endif %}>Cukup</option>
+                                        <option value="2" {% if data.2 == '2' %} selected {% endif %}>Kurang
+                                            Baik</option>
+                                        <option value="1" {% if data.2 == '1' %} selected {% endif %}>Tidak
+                                            Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="harga" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>harga</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="harga" id="harga" class="form-control">
+                                        <option value="" {% if data.2 == '' %} selected {% endif %}></option>
+                                        <option value="1" {% if data.2 == '1' %} selected {% endif %}>Murah</option>
+                                        <option value="2" {% if data.2 == '2' %} selected {% endif %}>Sedang</option>
+                                        <option value="3" {% if data.2 == '3' %} selected {% endif %}>Mahal</option>
+                                        <option value="4" {% if data.2 == '4' %} selected {% endif %}>Cukup Mahal</option>
+                                        <option value="5" {% if data.2 == '5' %} selected {% endif %}>Sangat Mahal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 offset-md-5">
+                                    <button type="reset" class="btn btn-outline-warning btn-icon-text">
+                                        <i class="ti-reload btn-icon-prepend"></i>
+                                        Reset
+                                    </button>
+                                    <button type="submit" name="simpan" class="btn btn-outline-primary btn-icon-text"><i
+                                            class="ti-file btn-icon-prepend"></i>
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}

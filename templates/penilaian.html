@@ -1,0 +1,173 @@
+{% include 'header.html' %}
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-10 grid-margin">
+                <div class="row">
+                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                        <h3 class="font-weight-bold">Penilaian</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">form Input</h4>
+                        <form class="forms-sample" action="/simpanpenilaian" method="POST">
+                            <div class="form-group row">
+                                <label class="col-sm-3 offset-md-2 col-form-label" for="merek">
+                                    <h6>Merek Leptop</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" name="merek" required>
+                                        <option value="">--Silahkan Pilih--</option>
+                                        {% for alt in alternatives %}
+                                            <option value="{{ alt.1 }}">{{ alt.1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 offset-md-2 col-form-label" for="ram">
+                                    <h6>Ram</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ram" id="ram" class="form-control">
+                                        <option selected>---Silahkan pilih---</option>
+                                        <option value="5">Sangat Baik</option>
+                                        <option value="4">Baik</option>
+                                        <option value="3">Cukup</option>
+                                        <option value="2">Kurang Baik</option>
+                                        <option value="1">Tidak Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ssd" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>SSD</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ssd" id="ssd" class="form-control">
+                                        <option selected>---Silahkan pilih---</option>
+                                        <option value="5">Sangat Baik</option>
+                                        <option value="4">Baik</option>
+                                        <option value="3">Cukup</option>
+                                        <option value="2">Kurang Baik</option>
+                                        <option value="1">Tidak Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="processor" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>Processor</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="processor" id="processor" class="form-control">
+                                        <option selected>---Silahkan pilih---</option>
+                                        <option value="5">Sangat Baik</option>
+                                        <option value="4">Baik</option>
+                                        <option value="3">Cukup</option>
+                                        <option value="2">Kurang Baik</option>
+                                        <option value="1">Tidak Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ukuran_layar" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>Ukuran Layar</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="ukuran_layar" id="ukuran_layar" class="form-control">
+                                        <option selected>---Silahkan pilih---</option>
+                                        <option value="5">Sangat Baik</option>
+                                        <option value="4">Baik</option>
+                                        <option value="3">Cukup</option>
+                                        <option value="2">Kurang Baik</option>
+                                        <option value="1">Tidak Baik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="harga" class="col-sm-3 offset-md-2 col-form-label">
+                                    <h6>harga</h6>
+                                </label>
+                                <div class="col-sm-5">
+                                    <select name="harga" id="harga" class="form-control">
+                                        <option selected>---Silahkan pilih---</option>
+                                        <option value="5">Murah</option>
+                                        <option value="4">Sedang</option>
+                                        <option value="3">Mahal</option>
+                                        <option value="2">Cukup Mahal</option>
+                                        <option value="1">Sangat Mahal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 offset-md-5">
+                                    <button type="reset" class="btn btn-outline-warning btn-icon-text">
+                                        <i class="ti-reload btn-icon-prepend"></i>
+                                        Reset
+                                    </button>
+                                    <button type="submit" name="simpan" class="btn btn-outline-primary btn-icon-text"><i
+                                            class="ti-file btn-icon-prepend"></i>
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Penilaian</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Merek</th>
+                                        <th>Ram</th>
+                                        <th>SSD</th>
+                                        <th>Processor</th>
+                                        <th>Ukuran Layar</th>
+                                        <th>Harga</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pnl in penilaian_data  %}
+                                    <tr>
+                                        <th>{{ loop.index }}</th>
+                                        <td>{{ pnl.1 }}</td>
+                                        <td>{{ pnl.2 }}</td>
+                                        <td>{{ pnl.3 }}</td>
+                                        <td>{{ pnl.4 }}</td>
+                                        <td>{{ pnl.5 }}</td>
+                                        <td>{{ pnl.6 }}</td>
+                                        <td>
+                                            <a href="edit_penilaian/{{ pnl.0}}"
+                                                class="btn btn-outline-success btn-md"><i
+                                                    class="ti-file btn-icon-append"></i> Edit</a>
+                                            <a href="/delete_penilaian/{{ pnl.0}}" class="btn btn-outline-danger btn-md"
+                                                onclick="return confirm ('data ingin dihapus')"><i
+                                                    class="ti-alert btn-icon-prepend"></i>Delete</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
